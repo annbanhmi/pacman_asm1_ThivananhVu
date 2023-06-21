@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/*Use the @font-face in CSS to display the font “Press Start”.*/
+@font-face {
+    font-family: 'Press Start';
+    src: url('/Users/macbook/Downloads/Contemporary Web Design 1 - MMDD159/Assignment & Exercise/Assignment 1 - PacMan - Thi Van Anh Vu/Assets_for_Students/prstartk.ttf') format('ttf')
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  /* Header and Navigation */
+  header {
+    background-color: #000000;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    width: 960px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 60px;
+  }
+  
+  nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5 ease;
+  }
+ /*The navigation links need to be inside a <NAV> tag. 
+        When hovered over, the links willfade into yellow using a .5s transition. 
+        When clicked on, the links will take you to theselected section*/
+ nav li a:hover,
+ nav li a.active{
+ color:#ffd300;
+ }
+
+  /* Home Section */
+
+  
+  #home-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #home-section #proimg {
+    height: 264px;
+    width: 832px;
+    margin-bottom: 40px;
+    margin-top:60px;
+  }
+.pacman{
+    height: 80px;
+    width: 80px;
+    margin-right: 100px;
+    position: absolute; 
+}
+
+.pinkghost, .blueghost, .redghost, .orangeghost {
+    height: 80px;
+    width: 80px;
+    position: relative; 
+  }
+/*In the “Home Section” section, 
+you must create a looping animation where the ghostsare chasing Pac Man. 
+Pac Man will chase the ghosts off the left side of the screen and
+then the animation will loop, 
+where Pac Man and the ghosts appear from the right handof the screen*/
+  #home-section .pacman, 
+  #home-section .pinkghost, 
+  #home-section .blueghost, 
+  #home-section .redghost, 
+  #home-section .orangeghost{
+    position: relative;
+    left:0px;
+    animation-name:chasing;
+    animation-duration: 8s;
+    animation-fill-mode: both;
+    animation-iteration-count:infinite; /*loop animation*/
+  }
+
+  /*The “Insert Coin” text needs to animate a looping blinking pattern, 
+  1s visible, and 1s invisible.*/
+  .blink-me {
+    animation: blinker 2s infinite; /*loop blinking*/
+  }
+  
+  @keyframes blinker {
+    50% { /*1s visible (50% of 2s)*/
+      opacity: 0;
+    }
+    100% { /*1s invisible (50% of 2s)*/
+        opacity: 100;
+      }
+  }
+
+
+ /* Home Section - keyframes */
+@keyframes chasing{
+    0%{ transform: translateX(-960px)} /*chasing from left to right*/
+    50% { transform: translateX(1200px)}
+    55% { transform: scaleX(-1) translateX(-1200px)} /*chasing back from right to left with horinzontal flip to adjust the direction*/
+    100% {transform: scaleX(-1) translateX(1200px)}
+}
+  #home-section h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 30vh;
+  }
+  
+/*Between each section you need to add a dotted line. Use section:after in CSS to style.*/
+  #home-section::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid /*could be "dotted" here, but i prefer the solid as file 'Pacman_Artboard'*/ #ffd300;
+    margin-top: 20px; 
+  }
+
+  /* High Scores Section */
+  #high-scores-section {
+    padding: 20px;
+    text-align: center;
+  }
+
+  
+  #high-scores-section h2 {
+    font-size: 50px;
+    color:#f9ed3f;
+    line-height: 10vh;
+    padding-top: 30px;
+    text-align: center
+  }
+
+  #high-scores-section h3 {
+    font-size: 38px;
+    text-align: center
+  }
+
+  #high-scores-section tr {
+    font-size: 30px;
+  }
+
+  /*Style the text colour on the “High Scores” list using nth-child().*/
+  #high-scores-section tr:nth-child(1){
+    line-height:10vh;
+    }
+  #high-scores-section tr:nth-child(2), 
+  #high-scores-section tr:nth-child(6),
+  #high-scores-section tr:nth-child(10){
+    color:#ffa002;
+    }
+ #high-scores-section tr:nth-child(3),
+ #high-scores-section tr:nth-child(7),
+ #high-scores-section tr:nth-child(11) {
+    color:#ff0401;
+    }
+ #high-scores-section tr:nth-child(4),
+ #high-scores-section tr:nth-child(8) {
+    color:#01f8f8;
+    }
+ #high-scores-section tr:nth-child(5),
+ #high-scores-section tr:nth-child(9) {
+    color:#ff60b0;
+    } 
+ #high-scores-section table {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-spacing: 350px 0px;
+
+  }
+  
+  #high-scores-section td {
+    font-size: 25px;
+    border: none;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /*Between each section you need to add a dotted line. Use section:after in CSS to style.*/
+  #high-scores-section::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid /*could be "dotted" here, but i prefer the solid as file 'Pacman_Artboard'*/ #ffd300;
+    margin-top: 20px; 
+  }
+  /* How to Play Section */
+  #how-to-play-section {
+    padding: 20px;
+    text-align: center;
+
+  }
+  #how-to-play-section hr {
+  background-color: #ffd300;
+  height: 2px;
+  border:none;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  
+  }
+
+  #how-to-play-section h2 {
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 90px;
+    margin-top:100px;
+  }
+  
+  /*In the “How to Play” section, 
+  you need to style the first-line to be all caps and yellow.*/
+  #how-to-play-section span {
+    font-size: 38px;
+    color:#ffd300;
+  } 
+  #how-to-play-section p {
+    margin-top: 10px;
+    line-height: 1.5;
+    font-size:38px;
+  }
+  
+  #how-to-play-section .pacman-ghost{
+    
+    height: 80px;
+    width: 80px;
+    margin-right: 100px;
+    position: relative;
+}
+
+.ghost {
+    height: 80px;
+    width: 80px;
+    position: relative; 
+  }
+/*In the “How to Play” section, you must create 
+a looping animation where Pac Man is chasing the ghosts. 
+Pac Man will chase the ghosts off the right side of the screen and
+then the animation will loop, where the ghosts and Pac Man appear from the left hand of the screen.*/
+
+#how-to-play-section .pacman-ghost, #how-to-play-section .ghost{
+    position: relative;
+    animation-name:ghostchase;
+    animation-duration: 8s;
+    animation-fill-mode: both;
+    animation-iteration-count:infinite; /*loop animation*/
+  }
+
+ /* How To Play Section - keyframes */
+@keyframes ghostchase {
+    0%{ transform: translateX(-960px)} /*chasing from left to right*/
+    50% { transform: translateX(1200px)}
+    55% { transform: scaleX(-1) translateX(-1200px)} /*chasing back from right to left with horinzontal flip to adjust the direction*/
+    100% {transform: scaleX(-1) translateX(1200px)}
+}
+
+/*Between each section you need to add a dotted line. Use section:after in CSS to style.*/
+#how-to-play-section::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid /*could be "dotted" here, but i prefer the solid as file 'Pacman_Artboard'*/ #ffd300;
+    margin-top: 20px; 
+  }
+
+  /* Players Section */
+  #players-section {
+    padding: 20px;
+    text-align: center;
+    line-height: 10vh;
+  }
+  #players-section hr {
+    background-color: #ffd300;
+    height: 2px;
+    border:none;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    }
+
+  #players-section h2 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  #players-section h3 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  #players-section table {
+    width: 100%;
+    display: grid;
+    align-items: left;
+    justify-content: center;
+    border-spacing: 150px 0px;
+  }
+  
+  #players-section th,
+  #players-section td {
+    border: none;
+    padding: 0px;
+    text-align: left;
+    font-size: 42px;
+  }
+
+/*Style the text colour on the “Players” list using nth-of-type()*/
+  #players-section tr:nth-child(1) {
+     color:#ff0401;
+     }
+   #players-section tr:nth-child(2) {
+     color:#ff60b0;
+     }
+   #players-section tr:nth-child(3) {
+     color:#01f8f8;
+     }       
+   #players-section tr:nth-child(4){
+     color:#ffa002;
+     }
+ .square-big{
+    background-color:#ffd300;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    margin-left: 50px;
+ }
+
+ .square-small {
+    background-color:#ffd300;
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+    margin-left: 50px;
+ }
+   
+ 
+  
+  /* Footer */
+  footer {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  footer p {
+    font-size: 14px;
+    margin-top: 140px;
+  }
